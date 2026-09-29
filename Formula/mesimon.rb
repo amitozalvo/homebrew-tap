@@ -16,7 +16,7 @@
 #   brew uninstall mesimon && brew untap msmn-test/local
 class Mesimon < Formula
   desc "Terminal kanban board that runs many coding-agent sessions"
-  homepage "https://github.com/amitozalvo/mesimon"
+  homepage "https://mesimon.dev"
   # No `version`: brew reads it off each url (`brew audit` calls a stated one
   # redundant), and orders alpha.10 after alpha.9.
   license "Apache-2.0"
@@ -26,19 +26,19 @@ class Mesimon < Formula
     depends_on arch: :arm64
 
     on_arm do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-alpha.30/mesimon-v0.1.0-alpha.30-aarch64-apple-darwin.tar.gz"
-      sha256 "e4c914d360a16606e1e91f6085451b4660993f254c719b306698da5016130742"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-alpha.31/mesimon-v0.1.0-alpha.31-aarch64-apple-darwin.tar.gz"
+      sha256 "d0ab2c62d6d65b90e4f342a3a310e3af577ca38f4b84ce3c7e13ac6b72d6c6e3"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-alpha.30/mesimon-v0.1.0-alpha.30-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "290100ecd309dca37b9ac8d02c501f6dff2f14377c68954c32225217bf89a9c5"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-alpha.31/mesimon-v0.1.0-alpha.31-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "f2dde33fb6bd419ce570c35359c8503ec0fae5b580fdb10f7411f14a6104ebd7"
     end
     on_arm do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-alpha.30/mesimon-v0.1.0-alpha.30-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "941c0f93af91711823198962a253375b7d01443ffdf9ad4a6b0abf64ff7cc639"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-alpha.31/mesimon-v0.1.0-alpha.31-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "e1d7fe29f86d7d915882544a77d42bb84cce50e4937555786790cf70739febe8"
     end
   end
 
