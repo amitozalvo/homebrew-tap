@@ -26,19 +26,19 @@ class Mesimon < Formula
     depends_on arch: :arm64
 
     on_arm do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.9/mesimon-v0.1.0-beta.9-aarch64-apple-darwin.tar.gz"
-      sha256 "b2a414b8400c75f6acf1f4c9d1a9dd6a32e5ea4524ecd8b58da5abe7a2aa7201"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.10/mesimon-v0.1.0-beta.10-aarch64-apple-darwin.tar.gz"
+      sha256 "c3e560c277e0edead19147115656825ea2b3e3fee0ab220580d4b697f6983903"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.9/mesimon-v0.1.0-beta.9-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "7adf30e9225e474b6f65c546392059c22f1dc90b7ac374f35cc90ff4c0afdcc9"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.10/mesimon-v0.1.0-beta.10-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "440470f6a15de1908ff93f154b05b9c0f90328dc42e24f19a32c52deb8bcb03a"
     end
     on_arm do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.9/mesimon-v0.1.0-beta.9-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "5f2725a3d2c5bc63bf33f5c6cb11c278f986c1ccc3d52234613a644a4d1911cc"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.10/mesimon-v0.1.0-beta.10-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "0242f0ea2403844f9b7b486be2aee28b1f49662ba9b973f706d81b8a6968e4c0"
     end
   end
 
