@@ -26,51 +26,36 @@ class Mesimon < Formula
     depends_on arch: :arm64
 
     on_arm do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.14/mesimon-v0.1.0-beta.14-aarch64-apple-darwin.tar.gz"
-      sha256 "3117f50e9f0bb53287a7f11dc889856bb398b44d97023c7fefa8942009d2dcd7"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.15/mesimon-v0.1.0-beta.15-aarch64-apple-darwin.tar.gz"
+      sha256 "bba701a5a85935cb018615c540159128dbba6c1168fe64c3587aea4683f2a68c"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.14/mesimon-v0.1.0-beta.14-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "dcf29d929f43a8329e3c01ad4d8086a8aa307267be9c18a01366d00a8495605e"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.15/mesimon-v0.1.0-beta.15-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "980948ab929a7eedbc614b9234768ed922be7ae27ccca1fe04fff1e97b711da4"
     end
     on_arm do
-      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.14/mesimon-v0.1.0-beta.14-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "63695fe404e174056f2e81a91af1b4991b5f587fe902986e5d181d5dba95e47f"
+      url "https://github.com/amitozalvo/mesimon-releases/releases/download/v0.1.0-beta.15/mesimon-v0.1.0-beta.15-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "6571baf160ad2c83932a55fcabc630fc9c34bf73f9e250bcd0a878388777a1bf"
     end
   end
 
   def install
     bin.install "mesimon"
-    # The macOS tarball carries mesimon's own tmux. It goes beside mesimon,
-    # where tmux_bin() looks first, and never as `tmux`, which would shadow
-    # the user's own on PATH. The Linux tarballs carry none: mesimon runs the
-    # distro's tmux there.
-    return unless OS.mac?
-
+    # Every tarball carries mesimon's own tmux. It goes beside mesimon, where
+    # tmux_bin() looks first, and never as `tmux`, which would shadow the
+    # user's own on PATH.
     bin.install "mesimon-tmux"
     doc.install "licenses-bundled"
-  end
-
-  def caveats
-    return unless OS.linux?
-
-    <<~EOS
-      mesimon runs agents on tmux 3.3 or newer, from your distro:
-        sudo apt install tmux
-      `mesimon doctor` checks it.
-    EOS
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/mesimon --version")
     # The bundled tmux runs, and it is the one mesimon resolves rather than a
     # tmux on PATH.
-    if OS.mac?
-      assert_match "tmux", shell_output("#{bin}/mesimon-tmux -V")
-      assert_match "/mesimon-tmux", shell_output("#{bin}/mesimon doctor multiplexer --verbose")
-    end
+    assert_match "tmux", shell_output("#{bin}/mesimon-tmux -V")
+    assert_match "/mesimon-tmux", shell_output("#{bin}/mesimon doctor multiplexer --verbose")
   end
 end
